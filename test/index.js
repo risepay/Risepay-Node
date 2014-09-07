@@ -25,12 +25,12 @@ module.exports = function(app){
 
 									}, function(resp){
 											if(resp.Approved){
-												console.log("Approved. Transaction ID = " + resp.json.PNRef);
-												console.log("AuthCode = " + resp.json.AuthCode)
+												console.log("Approved. Transaction ID = " + resp.PNRef);
+												console.log("AuthCode = " + resp.AuthCode)
 											}else{
-												console.log("Declined: " + resp.json.Message);
+												console.log("Declined: " + resp.Message);
 											}
-						  					res.send(resp.json);
+						  					res.send(resp);
 									});	
 
 								});
