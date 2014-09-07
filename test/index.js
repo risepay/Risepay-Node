@@ -20,16 +20,17 @@ module.exports = function(app){
 									InvNum: "ABC123",
 									Zip: "33139",
 									Street: "1880 Alton Road",
+									TipAmt: 1,
 									Customer: "JR"
+
 									}, function(resp){
-											
 											if(resp.Approved){
-												console.log("Approved. Transaction ID = " + resp.PNRef);
-												console.log("AuthCode = " + resp.AuthCode)
+												console.log("Approved. Transaction ID = " + resp.json.PNRef);
+												console.log("AuthCode = " + resp.json.AuthCode)
 											}else{
-												console.log("Declined: " + resp.Message);
+												console.log("Declined: " + resp.json.Message);
 											}
-						  					res.send(resp);
+						  					res.send(resp.json);
 									});	
 
 								});
